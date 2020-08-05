@@ -127,7 +127,7 @@ for (i=0; i&lt;200; i+=1){
         <exetype>2</exetype>
         <functionname></functionname>
         <codestring></codestring>
-        <whoName>self</whoName>
+        <whoName>obj_controller</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
@@ -282,14 +282,14 @@ case "talk":
                 case 9:
                     audio_stop_sound(snd_sad);
                     audio_play_sound(snd_space, 0 ,true);
-                    scr_return_to_orbit(false);
+                    scr_return_to_orbit();
                     break
             }
             break;
         case 1:
             switch (scenePart) {
                 case 0:
-                    obj_planet.image++;
+                    scr_update_planet_level();
                     obj_sun.face = face_happy;
                     scr_text("It looks like you leveled up!", "Congratulations!", "", 0, 3, "", face_happy, "sun");
                     break;
@@ -300,18 +300,18 @@ case "talk":
                 case 2:
                     asteroidDensity = 0.35;
                     nutrientsDensity = 0.2;
-                    scr_return_to_orbit(true);
+                    scr_return_to_orbit();
                     break;
             }
             break;
         case 2:
             switch (scenePart) {
                 case 0:
-                    obj_planet.image++;
+                    scr_update_planet_level();
                     scr_text("You leveled up again!", "It looks like your life", "is really growing!", 0, 3, "", face_bored, "sun");
                     break;
                 case 1:
-                    scr_return_to_orbit(true);
+                    scr_return_to_orbit();
                     asteroidDensity = 0.5;
                     nutrientsDensity = 0.2;
                     break;
@@ -320,19 +320,20 @@ case "talk":
         case 3:
             switch (scenePart) {
                 case 0:
-                    obj_planet.image++;
+                    scr_update_planet_level();
                     scr_text("Congratulations! You", "got max level. Now entering", "entering infinite mode!", 0, 3, "", face_bored, "sun");
                     break;
                 case 1:
                     asteroidDensity = 0.6;
                     nutrientsDensity = 0.15;
-                    scr_return_to_orbit(true);
+                    scr_return_to_orbit();
                     break;
             }
             break;
         default:
             state= "orbit";
             life = 0;
+            nut = 0;
             //reset life chart
             with (obj_menu) {
                 for (i=0; i&lt;=graphSize; i+=1) {

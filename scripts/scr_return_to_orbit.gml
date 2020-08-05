@@ -1,4 +1,4 @@
-///scr_return_to_orbit(particles);
+///scr_return_to_orbit();
 
 state= "orbit";
 scenePart = 0;
@@ -11,13 +11,5 @@ life = 0;
 with (obj_menu) {
     for (i=0; i<=graphSize; i+=1) {
         lifeHistory[i] = 0;
-    }
-}
-
-//planet particles
-if(argument0){
-    with(obj_planet) {
-        part_emitter_region(burst,emitter2,x-sprite_width/2,x+sprite_width/2,y-sprite_height/2,y+sprite_height/2,ps_shape_ellipse,1);
-        part_emitter_burst(burst,emitter2,particle2,70); 
     }
 }
