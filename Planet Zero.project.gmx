@@ -7,7 +7,6 @@
   <sounds name="sound">
     <sound>sound\snd_sad</sound>
     <sound>sound\snd_space</sound>
-    <sound>sound\snd_intense</sound>
     <sound>sound\snd_intro</sound>
     <sound>sound\snd_hit</sound>
     <sound>sound\snd_nut</sound>
